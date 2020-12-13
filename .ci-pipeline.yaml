@@ -10,7 +10,7 @@ steps:
         except:
           - master
         actions:
-          - echo "unit testing againest test url $TEST_URL and refereing to builtin var $NODE_NAME"
+          - echo "unit testing againest test url \$TEST_URL and refereing to builtin var \$NODE_NAME"
       - name: integration test
         only: [develop, release/*]
         actions:
