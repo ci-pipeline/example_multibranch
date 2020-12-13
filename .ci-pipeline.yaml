@@ -10,14 +10,18 @@ steps:
         except:
           - master
         actions:
-          - echo "unit testing"
+          - echo "unit testing againest test url $TEST_URL and refereing to builtin var $NODE_NAME"
       - name: integration test
         only: [develop, release/*]
         actions:
           - echo "integration testing step 1"
-          - echo "integration testing step 2"
+          - echo "integration testing step 2 "
   - name: deploy
+    trigger: manual
     only:
       - release/*
     actions:
       - echo "do deploy"
+
+variables:
+  TEST_URL: http://example.com
