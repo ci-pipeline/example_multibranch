@@ -11,7 +11,6 @@ steps:
           - master
         actions:
           - echo "unit testing againest test url $TEST_URL"
-          - echo "unit testing againest full test url $FULL_TEST_URL"
       - name: integration test
         only: [develop, release/*]
         actions:
@@ -26,4 +25,3 @@ steps:
 
 variables:
   TEST_URL: http://example.com
-  FULL_TEST_URL: $TEST_URL/rest-of-url
