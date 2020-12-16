@@ -24,6 +24,7 @@ steps:
       - name: integration test
         only: [develop, release/*]
         actions:
+          - apk add curl
           - echo "testing postgres" && curl postgres:5432
           - echo "testing nginx" && curl nginx:80
           - echo "testing redis" && exec 3<>/dev/tcp/redis/6379 && echo -e "PING\r\n" >&3 && head -c 7 <&3
