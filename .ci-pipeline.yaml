@@ -3,6 +3,10 @@ image: golang:alpine
 variables:
   TEST_URL: http://example.com
 
+services:
+  - postgres
+  - mysql
+
 steps:
   - name: build
     actions:
