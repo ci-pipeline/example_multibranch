@@ -3,7 +3,6 @@ image: golang:alpine
 variables:
   TEST_URL: http://example.com
   POSTGRES_PASSWORD: t@st!p@ssw0rd
-  MYSQL_ROOT_PASSWORD: t@st!p@ssw0rd
 
 services:
   - postgres:latest
@@ -24,11 +23,9 @@ steps:
       - name: integration test
         only: [develop, release/*]
         actions:
-          - apk add curl
-          - while true; echo " sleepgin ... " ; do sleep 10; done;
-          - echo "testing postgres" && curl postgres:5432
+          - apk add curl && apk add redis
           - echo "testing nginx" && curl nginx:80
-          - echo "testing redis" && exec 3<>/dev/tcp/redis/6379 && echo -e "PING\r\n" >&3 && head -c 7 <&3
+          - echo "testing redis" && echo INCR x | redis-cli -h redis
   - name: deploy
     trigger: manual
     only:
