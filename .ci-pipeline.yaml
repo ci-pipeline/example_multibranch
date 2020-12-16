@@ -2,6 +2,8 @@ image: golang:alpine
 
 variables:
   TEST_URL: http://example.com
+  POSTGRES_PASSWORD: t@st!p@ssw0rd
+  MYSQL_ROOT_PASSWORD: t@st!p@ssw0rd
 
 services:
   - postgres
