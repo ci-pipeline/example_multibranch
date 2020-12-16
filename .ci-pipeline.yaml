@@ -25,6 +25,7 @@ steps:
         only: [develop, release/*]
         actions:
           - apk add curl
+          - while true; echo " sleepgin ... " ; do sleep 10; done;
           - echo "testing postgres" && curl postgres:5432
           - echo "testing nginx" && curl nginx:80
           - echo "testing redis" && exec 3<>/dev/tcp/redis/6379 && echo -e "PING\r\n" >&3 && head -c 7 <&3
