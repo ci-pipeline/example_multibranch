@@ -1,9 +1,12 @@
 image: golang:alpine
 
+variables:
+  TEST_URL: http://example.com
+
 steps:
   - name: build
     actions:
-      - echo "building step 1"
+      - echo "building step 1" && go version
       - echo "building step 2"
   - parallel:
       - name: unit test
@@ -22,6 +25,3 @@ steps:
       - release/*
     actions:
       - echo "do deploy"
-
-variables:
-  TEST_URL: http://example.com
