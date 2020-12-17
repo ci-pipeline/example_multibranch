@@ -4,10 +4,10 @@ variables:
   TEST_URL: http://example.com
   POSTGRES_PASSWORD: t@st!p@ssw0rd
 
-#services:
-#  - postgres:latest
-#  - nginx:latest
-#  - redis:alpine
+services:
+  - postgres:latest
+  - nginx:latest
+  - redis:alpine
 
 steps:
 
